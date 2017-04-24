@@ -1,24 +1,27 @@
 ﻿Imports System.Data.OleDb
 Public Class WebForm3
     Inherits System.Web.UI.Page
+    Dim provider As String
+    Dim dataFile As String
+    Dim connString As String
+    Dim myConnection As OleDbConnection = New OleDbConnection
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load 'Not finished
+        provider = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source ="
+        dataFile = "C:\Users\cbabi13\Documents\Users.accdb"
+        connString = provider & dataFile
+        myConnection.ConnectionString = connString
 
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        String connString = "Provider=Microsoft.ACE.OLEDB.12.0;" + "Data Source=C:\\Users\\KevinDW\\Desktop\\dotNET\\Week 5\\Prak1\\demo1.accdb";
 
-        OleDbConnection conn = New OleDbConnection(connString);
+        Dim cmd As OleDbCommand = New OleDbCommand("SELECT * FROM [table3]")
 
-        conn.Open();
+        OleDbCommand cmd = New OleDbCommand(sqlCmd, conn)
 
-        String sqlCmd = "SELECT CursusNaam FROM tblCursus";
-
-        OleDbCommand cmd = New OleDbCommand(sqlCmd, conn);
-
-        Using (OleDBDataReader reader = cmd.ExecuteReader())
+        Using (OleDbDataReader reader = cmd.ExecuteReader())
         {
-            ListBox1.Items.Add(reader);
+            ListBox1.Items.Add(reader)
         }
 
-        conn.Close();
+        conn.Close()
     End Sub
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click

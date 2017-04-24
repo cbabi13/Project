@@ -1,4 +1,5 @@
 ﻿Imports System.Data.OleDb
+Imports System.Windows.Navigation
 Public Class WebForm2
     Inherits System.Web.UI.Page
     Dim provider As String
@@ -24,5 +25,8 @@ Public Class WebForm2
         End If
 
         Dim cmd As OleDbCommand = New OleDbCommand("INSERT INTO [table1] VALUES (" & TextBox1.Text & ", " & TextBox2.Text & ", " & employee & ")")
+        'change site to webform3
     End Sub
+
+
 End Class

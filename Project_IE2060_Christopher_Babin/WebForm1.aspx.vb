@@ -1,4 +1,5 @@
 ﻿Imports System.Data.OleDb
+Imports System.Windows.Navigation
 Public Class WebForm1
     Inherits System.Web.UI.Page
     Dim provider As String
@@ -31,7 +32,7 @@ Public Class WebForm1
         End While
 
         If userFound = True Then
-            'Home Page
+            'send to WebForm3
         Else
             MsgBox("Sorry, username or password not found", MsgBoxStyle.OkOnly, "Invalid Login")
         End If
@@ -42,6 +43,7 @@ Public Class WebForm1
     End Sub
 
     Protected Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-
+        NavigationService.Navigate(New Uri("//WebForm2.aspx", UriKind.Relative))
+        'Not working
     End Sub
 End Class
