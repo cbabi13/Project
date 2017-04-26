@@ -1,5 +1,4 @@
 ﻿Imports System.Data.OleDb
-Imports System.Windows.Navigation
 Public Class WebForm1
     Inherits System.Web.UI.Page
     Dim provider As String
@@ -19,12 +18,13 @@ Public Class WebForm1
 
     Protected Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         provider = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source ="
-        dataFile = "C:\Users\cbabi13\Documents\Users.accdb"
+        dataFile = "C:\Users\cbabi13\Documents\GitHub\Project\Users.accdb"
         connString = provider & dataFile
         myConnection.ConnectionString = connString
+        myConnection.Open()
 
         Dim cmd As OleDbCommand = New OleDbCommand("SELECT * FROM [table1] WHERE [Username] = '" & TextBox1.Text & "' AND [Password] = '" & TextBox2.Text & "'", myConnection)
-        Dim dr As OleDbDataReader = cmd.ExecuteReader
+        Dim dr As OleDbDataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection)
         Dim userFound As Boolean = False
 
         While dr.Read
@@ -43,7 +43,7 @@ Public Class WebForm1
     End Sub
 
     Protected Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        NavigationService.Navigate(New Uri("//WebForm2.aspx", UriKind.Relative))
+        'NavigationService.Navigate(New Uri("//WebForm2.aspx", UriKind.Relative))
         'Not working
     End Sub
 End Class
