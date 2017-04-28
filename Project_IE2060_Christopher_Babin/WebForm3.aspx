@@ -15,7 +15,6 @@
         <asp:Button ID="Button1" runat="server" Height="34px" Text="Cart" Width="74px" />
         
     </p>
-        <asp:ListBox ID="ListBox1" runat="server" Height="500px" Width="500px" DataSourceID="SqlDataSource1"></asp:ListBox>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT [Gender], [Price], [JerseyName] FROM [Table3]"></asp:SqlDataSource>
         <asp:DataList ID="DataList1" runat="server" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" Width="1218px">
             <AlternatingItemStyle BackColor="White" ForeColor="#284775" />
