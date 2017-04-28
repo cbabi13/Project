@@ -28,7 +28,7 @@ Public Class WebForm3
     End Sub
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        'Move to checkout page
+        MsgBox("Not yet implemented!")
     End Sub
 
     Protected Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
@@ -37,5 +37,11 @@ Public Class WebForm3
 
     Protected Sub DataList1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DataList1.SelectedIndexChanged
 
+    End Sub
+
+    Protected Sub DataList1_ItemCommand(ByVal source As Object, ByVal e As DataListCommandEventArgs)
+        If e.CommandName = "AddToCart" Then
+
+        End If
     End Sub
 End Class

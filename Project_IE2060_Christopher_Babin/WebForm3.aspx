@@ -31,7 +31,7 @@
                 Price:
                 <asp:Label ID="PriceLabel" runat="server" Text='<%# Eval("Price") %>' />
                 <br />
-                <asp:Button ID="Button2" runat="server" Height="34px" Text="Add to Cart" Width="80px" />
+                <asp:Button ID="Button2" runat="server" Height="34px" Text="Add to Cart" CommandName="AddToCart" Width="80px" />
                 <br />
                 <br />
             </ItemTemplate>
