@@ -20,8 +20,9 @@
     <a href="WebForms/WebForms/">WebForms/</a><form id="form1" runat="server">
 
   
-    &nbsp;</div><p>
+    &nbsp;<p>
         <asp:Label ID="Label1" runat="server" Text="Username"></asp:Label>
+        <asp:Label ID="Label2" runat="server" style="margin-left: 100px"  Text="Password"></asp:Label>
         </p>
             <p>
             <asp:TextBox ID="TextBox1" runat="server" Width="119px"></asp:TextBox>
@@ -29,7 +30,7 @@
             <asp:Button ID="Button2" runat="server" Height="20px" style="margin-left: 139px; margin-top: 0px" Text="Login" />
         </p>
         <asp:Button ID="Button3" runat="server" style="margin-left: 37px" Text="Register" Width="89px" />
-        <asp:Label ID="Label2" runat="server" CssClass="auto-style1" Text="Password"></asp:Label>
+        
         <p>
             &nbsp;</p>
     </form>

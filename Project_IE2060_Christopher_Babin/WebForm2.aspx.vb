@@ -12,8 +12,10 @@ Public Class WebForm2
     End Sub
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim getInfo As System.IO.FileInfo
+        getInfo = My.Computer.FileSystem.GetFileInfo("C:\Users\The Meme Master\Documents\GitHub\Project\Users.accdb") 'CHRIS: Replace what is double quoted with: "C:\Users\cbabi13\Documents\GitHub\Project\Users.accdb"
         provider = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source ="
-        dataFile = "C:\Users\cbabi13\Documents\GitHub\Project\Users.accdb"
+        dataFile = getInfo.FullName
         connString = provider & dataFile
         myConnection.ConnectionString = connString
         Dim employee As String = ""
@@ -23,8 +25,9 @@ Public Class WebForm2
         Else
             employee = "no"
         End If
-
-        Dim cmd As OleDbCommand = New OleDbCommand("INSERT INTO [table1] VALUES (" & TextBox1.Text & ", " & TextBox2.Text & ", " & employee & ")")
+        myConnection.Open()
+        Dim cmd As OleDbCommand = New OleDbCommand("INSERT INTO [table1] VALUES (" & TextBox1.Text & ", " & TextBox2.Text & ", " & employee & ")", myConnection)
+        Dim dr As OleDbDataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection)
         'change site to webform3
     End Sub
 

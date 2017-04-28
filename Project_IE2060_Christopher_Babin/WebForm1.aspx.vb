@@ -18,7 +18,7 @@ Public Class WebForm1
 
     Protected Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         provider = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source ="
-        dataFile = "C:\Users\cbabi13\Documents\GitHub\Project\Users.accdb"
+        dataFile = "C:\Users\The Meme Master\Documents\GitHub\Project\Users.accdb" 'CHRIS: Replace what is double quoted with: "C:\Users\cbabi13\Documents\GitHub\Project\Users.accdb"
         connString = provider & dataFile
         myConnection.ConnectionString = connString
         myConnection.Open()
@@ -32,18 +32,14 @@ Public Class WebForm1
         End While
 
         If userFound = True Then
-            'send to WebForm3
+            Server.Transfer("WebForm3.aspx", True)
         Else
             MsgBox("Sorry, username or password not found", MsgBoxStyle.OkOnly, "Invalid Login")
         End If
     End Sub
 
-    Private Sub OleDbConnection(p1 As Object)
-        Throw New NotImplementedException
-    End Sub
 
     Protected Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        'NavigationService.Navigate(New Uri("//WebForm2.aspx", UriKind.Relative))
-        'Not working
+        Server.Transfer("WebForm2.aspx", True)
     End Sub
 End Class
